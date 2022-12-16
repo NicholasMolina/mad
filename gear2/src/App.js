@@ -1,5 +1,9 @@
-import { Component } from 'react';
+import { Component } from 'react'
+import './App.css';
 import Productos from './components/Productos'
+import Layout from './components/Layout'
+import Title from './components/Title'
+import Navbar from './components/Navbar'
 
 class App extends Component{
   state = {
@@ -7,6 +11,7 @@ class App extends Component{
       { name: 'Caja sorpresa', price: 1500, img: '/productos/box.jpg'},
       { name: 'Luffytaro', price: 1500, img: '/productos/funko.jpg'},
       { name: 'Monopoly', price: 1500, img: '/productos/Monopoly.jpg'},
+      
     ]
   }
 
@@ -14,10 +19,15 @@ class App extends Component{
   render() {
     return(
       <div>
-        <Productos 
-          agregarAlCarro={() => console.log('No hace nadi')}
-          productos={this.state.productos}>
-        </Productos>
+        <Navbar/>
+        <Layout>
+          <Title/>
+          <Productos 
+            agregarAlCarro={() => console.log('No hace nadi')}
+            productos={this.state.productos}>
+          </Productos>
+        </Layout>
+        
       
       </div>
     )
